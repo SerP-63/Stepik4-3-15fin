@@ -12,41 +12,48 @@ import time
 
 
 @pytest.mark.xfail
-class TestFirstGroup():
+class TestFirstGroup:
 
-    def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
+    @staticmethod
+    def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
         # тест ожидаемо валится без паузы
         # XFAIL
         page = MainPage(browser, MainPageLocators.BASKET_PAGE_URL)
         page.cant_see_success_message_after_adding_product_to_basket()
         
-    def test_guest_cant_see_success_message(self, browser):
+    @staticmethod
+    def test_guest_cant_see_success_message(browser):
         # тест ждет 4 сек и нормально проходит
         # XPASS
         page = MainPage(browser, MainPageLocators.BASKET_PAGE_URL)
         page.cant_see_success_message()
 
-    def test_message_disappeared_after_adding_product_to_basket(self, browser):
+    @staticmethod
+    def test_message_disappeared_after_adding_product_to_basket(browser):
         # тест ждет 4 сек, элемент не исчезает, тест валится
         # XFAIL
         page = MainPage(browser, MainPageLocators.BASKET_PAGE_URL)
         page.message_disappeared_after_adding_product_to_basket()
 
-    def test_guest_should_see_login_link_on_product_page(self, browser):
+    @staticmethod
+    def test_guest_should_see_login_link_on_product_page(browser):
         # Login link is presented
         # XPASS
         page = ProductPage(browser, MainPageLocators.PRODUCT_PAGE_URL)
         page.should_see_login_link_on_product_page()
 
 
+# noinspection PyRedundantParentheses,PyRedundantParentheses,PyRedundantParentheses
 @pytest.mark.need_review
-class TestSecondGroup():
+class TestSecondGroup:
 
-    def test_guest_can_go_to_login_page_from_product_page(self, browser):
+    @staticmethod
+    def test_guest_can_go_to_login_page_from_product_page(browser):
         page = ProductPage(browser, MainPageLocators.BASKET_PAGE_URL)
         page.can_go_to_login_page()
 
-    def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser):
+    @staticmethod
+    def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
         page = ProductPage(browser, MainPageLocators.PRODUCT_PAGE_URL)
         page.cant_see_product_in_basket()
 
@@ -62,11 +69,12 @@ class TestSecondGroup():
 
 
 @pytest.mark.need_review
-class TestUserAddToBasketFromProductPage():
+class TestUserAddToBasketFromProductPage:
 
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         print('# 1. Открыть страницу регистрации')
+        # noinspection PyPep8Naming
         loginPage = LoginPage(browser, LoginPageLocators.LOGIN_PAGE_URL)
         loginPage.open()
         loginPage.should_be_login_page()
@@ -82,10 +90,12 @@ class TestUserAddToBasketFromProductPage():
         yield
 
     # Тест отключен согласно требованиям п.4.3.14
-    def _test_user_cant_see_success_message(self, browser):
+    @staticmethod
+    def _test_user_cant_see_success_message(browser):
         page = LoginPage(browser, MainPageLocators.BASKET_PAGE_URL)
         page.cant_see_success_message()
 
-    def test_user_can_add_product_to_basket(self, browser):
+    @staticmethod
+    def test_user_can_add_product_to_basket(browser):
         page = ProductPage(browser, MainPageLocators.BASKET_PAGE_URL)
         page.can_add_product_to_basket()

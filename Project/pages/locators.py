@@ -4,10 +4,10 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators():
-    BASKET_PAGE_URL = ("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0")
-    MAIN_PAGE_URL = ("http://selenium1py.pythonanywhere.com")
-    PRODUCT_PAGE_URL = ("http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/")
+class MainPageLocators:
+    BASKET_PAGE_URL = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
+    MAIN_PAGE_URL = "http://selenium1py.pythonanywhere.com"
+    PRODUCT_PAGE_URL = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     BASKET_BTN = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PROD_NAME  = (By.CSS_SELECTOR, ".product_main h1")
     PROD_PRICE = (By.CSS_SELECTOR, "p.price_color")
@@ -16,7 +16,7 @@ class MainPageLocators():
     PRICE_TMP = (By.XPATH, './/*[@id="messages"]/div[3]/div/p[1]/strong')
 
 
-class BasePageLocators():
+class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
@@ -27,8 +27,8 @@ class BasePageLocators():
     PRODUCT_HOME = (By.CSS_SELECTOR, ".sub-header")
     
 
-class LoginPageLocators():
-    LOGIN_PAGE_URL = ("http://selenium1py.pythonanywhere.com/en-gb/accounts/login/")
+class LoginPageLocators:
+    LOGIN_PAGE_URL = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     FIND_EMAIL = (By.CSS_SELECTOR, "input[name='registration-email']")

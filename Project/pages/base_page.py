@@ -12,8 +12,8 @@ import math
 from .locators import BasePageLocators
 from .locators import MainPageLocators
 
-class BasePage():
-    def __init__(self, browser, url, timeout=10):
+class BasePage:
+    def __init__(self, browser, url):
         self.browser = browser
         self.url = url
         
@@ -72,7 +72,7 @@ class BasePage():
         self.tovar  = self.browser.find_element(*MainPageLocators.PROD_NAME).text
         # Сохраним для сравнения стоимость того же товара
         self.price = self.browser.find_element(*MainPageLocators.PROD_PRICE).text
-        
+
         basket_btn.click()        
 
     def is_disappeared(self, how, what, timeout=4):
@@ -88,7 +88,7 @@ class BasePage():
     # найти элемент на странице
         try:
             self.browser.find_element(how, what)
-        except (NoSuchElementException):
+        except NoSuchElementException:
             return False
         return True
 

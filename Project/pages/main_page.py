@@ -3,7 +3,7 @@
 
 from .base_page import BasePage
 from .locators import MainPageLocators
-from selenium.webdriver.common.by import By
+
 
 class MainPage(BasePage): 
     
@@ -30,8 +30,8 @@ class MainPage(BasePage):
         assert self.is_disappeared(*MainPageLocators.PROD_TMP), "элемент не исчезает"
         
     def should_see_login_link_on_product_page(self):
-        page.open()
-        page.should_be_login_link()
+        self.open()
+        self.should_be_login_link()
 
         
 
